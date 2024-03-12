@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
 const Header = () => {
-
   const { currentUser } = useSelector((state) => state.user);
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -19,7 +18,7 @@ const Header = () => {
     const searchQuery = urlParams.toString();
     navigate(`/search?${searchQuery}`);
   };
-  
+
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const searchTermFromUrl = urlParams.get("searchTerm");
@@ -35,13 +34,13 @@ const Header = () => {
           Estates
         </h1>
         <form
-          className="bg-slate-200 rounded-lg w-32 sm:w-80 flex items-center p-2 justify-between"
           onSubmit={handleSubmit}
+          className="bg-slate-100 p-3 rounded-lg flex items-center"
         >
           <input
             type="text"
-            placeholder="search..."
-            className="bg-transparent focus:outline-none p-1"
+            placeholder="Search..."
+            className="bg-transparent focus:outline-none w-24 sm:w-64"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
