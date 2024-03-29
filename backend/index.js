@@ -7,6 +7,7 @@ import path from 'path';
 import authRouter from './routes/auth.routes.js';
 import userRouter from './routes/user.routes.js';
 import listingRouter from './routes/listing.routes.js';
+import job from './cron/cron.js';
 
 dotenv.config();
 
@@ -21,6 +22,7 @@ mongoose
         console.log(error)
     })
 
+job();
 app.use(express.json());
 
 app.use(cookieParser());
