@@ -22,7 +22,7 @@ mongoose
         console.log(error)
     })
 
-job();
+job.start();
 app.use(express.json());
 
 app.use(cookieParser());
